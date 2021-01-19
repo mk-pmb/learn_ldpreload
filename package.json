@@ -1,0 +1,21 @@
+{ "name": "learn_ldpreload",
+  "version": "0.0.1",
+  "description": "",
+  "keywords": [],
+
+  "author": "M.K. (https://github.com/mk-pmb)",
+  "homepage": "https://github.com/mk-pmb/learn_ldpreload/#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mk-pmb/learn_ldpreload.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mk-pmb/learn_ldpreload/issues"
+  },
+  "contributors": [],
+
+  "private": true, "license": "LGPL-2.1-or-later",
+
+
+  "npm vs. BOM = Unexpected token": "-*- coding: UTF-8 -*-"
+}
