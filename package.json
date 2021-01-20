@@ -1,6 +1,6 @@
 { "name": "learn_ldpreload",
   "version": "0.0.1",
-  "description": "",
+  "description": "My research notes while learning to LD_PRELOAD.",
   "keywords": [],
 
   "author": "M.K. (https://github.com/mk-pmb)",
