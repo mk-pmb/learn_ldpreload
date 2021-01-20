@@ -10,7 +10,19 @@
 
 typedef int (*MainFunc)(int argc, char** argv);
 
+extern FILE* fopen(const char *path, const char *mode) {
+  printf("overloaded fopen: %s, %s\n", path, mode);
+  return NULL;
+}
+
+size_t strlen(const char *__s) {
+  printf("overloaded strlen: %s\n", __s);
+  return 9009;
+}
+
 int hello(int argc, char** argv) {
+  return 555;
+  /*
   printf("%u args:", argc);
   for (int i = 0; i < argc; i += 1) {
     printf(" '%s'", argv[i]);
@@ -19,4 +31,5 @@ int hello(int argc, char** argv) {
   MainFunc main_fptr = (MainFunc)dlsym(RTLD_NEXT,
     "hello");
   return (*main_fptr)(argc, argv);
+  */
 }

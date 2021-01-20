@@ -16,6 +16,14 @@ Experiments
   to print its arguments.
   * main() is special and can't be overloaded.
 * 210120-1635: Let main() delegate to hello().
+  * no effect.
+* 210120-1750: Can I overload library functions?
+  * Works for fopen, but not for strlen and hello.
+  * strlen might be another special case because it's in stdlib,
+    maybe the compiler optimized it in some magic way.
+  * The hello function cannot be redirected becase it isn't dynamically
+    loaded in the first place. No dynamic lookup is required, because
+    it's in the same "library" as main().
 
 
 

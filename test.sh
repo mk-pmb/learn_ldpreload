@@ -10,7 +10,7 @@ function build_and_test () {
   compile hello.elf   || return $?
   compile argdump.so  || return $?
   echo
-  LD_PRELOAD="$PWD"/argdump.so ./hello.elf foo bar qux
+  LD_PRELOAD=./argdump.so ./hello.elf foo bar qux
 }
 
 
@@ -22,20 +22,26 @@ function compile () {
     g++
     -Wall
     )
+
   case "$DEST" in
-    *.so )
-      GCC_CMD+=(
-        -shared
-        -Wl,--no-as-needed  # https://github.com/rofl0r/proxychains-ng/pull/65
-        -fPIC
-        -ldl
-        )
-      ;;
+    *.so ) GCC_CMD+=(
+      -fPIC
+      -shared
+      -Wl,--no-as-needed  # https://github.com/rofl0r/proxychains-ng/pull/65
+      );;
   esac
+
   GCC_CMD+=(
     -o "$DEST"
     "$SRC"
     )
+
+  case "$DEST" in
+    *.so ) GCC_CMD+=(
+      -ldl
+      );;
+  esac
+
   echo "D: ${GCC_CMD[*]}"
   "${GCC_CMD[@]}" || return $?
   echo -n 'D: SHA-1: '; sha1sum --binary "$DEST" || return $?
