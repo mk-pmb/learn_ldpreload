@@ -10,13 +10,13 @@
 
 typedef int (*MainFunc)(int argc, char** argv);
 
-int main(int argc, char** argv) {
+int hello(int argc, char** argv) {
   printf("%u args:", argc);
   for (int i = 0; i < argc; i += 1) {
     printf(" '%s'", argv[i]);
   }
   printf("\n");
   MainFunc main_fptr = (MainFunc)dlsym(RTLD_NEXT,
-    "main");
+    "hello");
   return (*main_fptr)(argc, argv);
 }

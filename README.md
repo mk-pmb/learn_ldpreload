@@ -15,6 +15,7 @@ Experiments
 * 210120-1630: Trying to overload a simple hello world program's main()
   to print its arguments.
   * main() is special and can't be overloaded.
+* 210120-1635: Let main() delegate to hello().
 
 
 
